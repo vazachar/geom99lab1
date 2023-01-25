@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <style>
+     /* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  height: 100%;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}   
+#images {
+  width: 400px;
+  height: 600px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+  #title {
+    text-align: center;
+    color: red;
+    font-family: ;
+  }
+  #information {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+
+    </style>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+  
+<h1 id="title">Newfoundland & Labrador</h1>
+<p id="information">Along the Irish Loop, in the heart of Newfoundland & Labrador there are 5 mainpoints you absouelty have to visit.  that bring you to some of the most historic and breathaking views. </p>
+ 
+
+<div id="map"></div>
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
+    <script>
+    let map;
+
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 47.478, lng: -52.891 },
+        zoom: 10,
+      });
+      const flightPlanCoordinates = [
+    { lat: 47.571, lng: -52.681 },
+    { lat: 47.522, lng: -52.623 },
+    { lat: 47.473, lng: -52.702 },
+    { lat: 47.279, lng: -52.830 },
+    { lat: 47.166, lng: -52.867 },
+  ];
+  const flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+  });
+
+// below is the markers locations, the click for popup and the java for the popup.
+// Sourced from: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple 
+   {const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Signal Hill</h1>' +
+    '<div id="bodyContent">' +
+    "<img src=Images/Signal.jpg>" +
+    "</div>" +
+    "</div>";
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "Signal Hill",
+  });
+
+  const marker = new google.maps.Marker({
+    position: { lat: 47.571, lng: -52.681 },
+    map,
+    title: "Signal Hill",
+    label: "1"
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+   {const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Cape Spear</h1>' +
+    '<div id="bodyContent">' +
+    "<img src=Images/Cape.jpg>" +
+    "</div>" +
+    "</div>";
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "Cape Spear",
+  });
+
+  const marker = new google.maps.Marker({
+    position: { lat: 47.522, lng: -52.623 },
+    map,
+    title: "Cape Spear",
+    label: "2"
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+{const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Petty Harbour/ Maddox Cove</h1>' +
+    '<div id="bodyContent">' +
+    "<img src=Images/Petty.jpg>" +
+    "</div>" +
+    "</div>";
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "Petty Harbour",
+  });
+
+  const marker = new google.maps.Marker({
+    position: { lat: 47.473, lng: -52.702 },
+    map,
+    title: "Petty Harbour",
+    label: "3"
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+{const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Witless Bay</h1>' +
+    '<div id="bodyContent">' +
+    "<img src=Images/Witlessre.jpg>" +
+    "</div>" +
+    "</div>";
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "Witless Bay",
+  });
+
+  const marker = new google.maps.Marker({
+    position: { lat: 47.279, lng: -52.830 },
+    map,
+    title: "Witless Bay",
+    label: "4"
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+
+{const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">La Manche</h1>' +
+    '<div id="bodyContent">' +
+    "<img src=Images/Lamaunche.jpg>" +
+    "</div>" +
+    "</div>";
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "La Manche",
+  });
+
+  const marker = new google.maps.Marker({
+    position: { lat: 47.166, lng: -52.867 },
+    map,
+    title: "La Manche",
+    label: "5",
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+    window.initMap = initMap;
+
+  flightPath.setMap(map);
+    }
+
+window.initMap = initMap;
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+    defer
+  ></script>
+
+
+
+</body>
+</html>
