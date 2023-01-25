@@ -9,7 +9,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-[https://vazachar.github.io/geom99lab1/services/directions.html](https://maps.googleapis.com/maps/api/directions/json?avoid=toll&depature_time=1674175000&origin=place_id:ChIJpWu8v2pX04kRNsXIQ-K509k&waypoints=place_id:ChIJkSMJK-xY04kRJPootH8cj8w&destination=place_id:ChIJZWITMHFf04kRzGlJxm2J9jc&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE)
+[https://vazachar.github.io/geom99lab1/services/directions.html](https://maps.googleapis.com/maps/api/directions/json?avoid=toll&depature_time=1674175000&origin=place_id:ChIJpWu8v2pX04kRNsXIQ-K509k&waypoints=place_id:ChIJkSMJK-xY04kRJPootH8cj8w&destination=place_id:ChIJZWITMHFf04kRzGlJxm2J9jc&key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w)
 ```
 
 ## Next paste the full JSON response to this query here:
